@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Uni_LibraryManagement.Data.Entities.BookIssue>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.ISBN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Returned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityIssued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityReturned)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Issued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Returned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityIssued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityReturned)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+
+                @if (Uni_LibraryManagement.Authentication.AuthenticationManager.LoggedUser.IsAdmin)
+                {
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                    <span>|</span>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>

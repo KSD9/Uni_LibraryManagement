@@ -1,0 +1,66 @@
+﻿@model Uni_LibraryManagement.Data.Entities.BookIssue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookIssue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Issued)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issued)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Returned)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Returned)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityIssued)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityIssued)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityReturned)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityReturned)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
